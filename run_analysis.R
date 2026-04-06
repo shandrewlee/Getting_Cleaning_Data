@@ -8,6 +8,7 @@ run_prog <- function(){
     combined <- rbind(train_doc, test_doc) %>% relocate(Activity, .after = 1)
     write.table(combined, "combined data.txt", row.names = FALSE)
     
+    
     cal <- combined %>% group_by(Subject, Activity) %>%
             summarise(across(where(is.numeric), mean), recordCount = n()) %>%
             relocate(recordCount, .after = 2)
@@ -31,7 +32,7 @@ docprod <- function(my_type){
     
     my_subj <- read.table(data_subj)
     
-    my_y <- read.table(data_y) %>% merge(activity, by.x = "V1", , by.y = "V1") 
+    my_y <- read.table(data_y) 
     
     my_doc <- cbind(my_subj, my_orig, my_y[[1]])
     
