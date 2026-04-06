@@ -6,15 +6,14 @@ run_prog <- function(){
     test_doc <- docprod("Test")
     
     combined <- rbind(train_doc, test_doc) %>% relocate(Activity, .after = 1)
-    write_csv(combined, "combined data.csv")
+    write.table(combined, "combined data.txt", row.names = FALSE)
     
     cal <- combined %>% group_by(Subject, Activity, DataType) %>%
             summarise(across(where(is.numeric), mean), recordCount = n()) %>%
             relocate(recordCount, .after = 3)
     colnames(cal)[5:ncol(cal)] <- paste0("Ave of ", colnames(cal)[5:ncol(cal)])
+    write.table(cal, "processed data.txt", row.names = FALSE)
     
-    write_csv(cal, "processed data.csv")
-    cal
 }
 
 
