@@ -1,7 +1,7 @@
 # Getting_Cleaning_Data
 ## Getting and Cleaning Data Project
 \
-**MAJOR DEBUG FIXED AFTER SUMBISSION. PLS REFER TO GITHUB TXT FOR CORRECT DATA OUTPUT**
+**MAJOR BUG FOUND AFTER SUMBISSION. PLS REFER TO GITHUB TXT FOR CORRECT DATA OUTPUT**
 \
 \
 The project utilizes the data from the below publication:
