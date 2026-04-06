@@ -8,10 +8,10 @@ run_prog <- function(){
     combined <- rbind(train_doc, test_doc) %>% relocate(Activity, .after = 1)
     write.table(combined, "combined data.txt", row.names = FALSE)
     
-    cal <- combined %>% group_by(Subject, Activity, DataType) %>%
+    cal <- combined %>% group_by(Subject, Activity) %>%
             summarise(across(where(is.numeric), mean), recordCount = n()) %>%
-            relocate(recordCount, .after = 3)
-    colnames(cal)[5:ncol(cal)] <- paste0("Ave of ", colnames(cal)[5:ncol(cal)])
+            relocate(recordCount, .after = 2)
+    colnames(cal)[4:ncol(cal)] <- paste0("Ave of ", colnames(cal)[4:ncol(cal)])
     write.table(cal, "processed data.txt", row.names = FALSE)
     
 }
