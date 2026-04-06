@@ -14,6 +14,7 @@ run_prog <- function(){
     colnames(cal)[5:ncol(cal)] <- paste0("Ave of ", colnames(cal)[5:ncol(cal)])
     
     write_csv(cal, "processed data.csv")
+    cal
 }
 
 
